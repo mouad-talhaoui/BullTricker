@@ -440,24 +440,95 @@ int main(int argc, char *args[])
                     }
                 }
                 }
+            }else if (event.type == SDL_WINDOWEVENT && event.window.event == SDL_WINDOWEVENT_CLOSE) {
+                const SDL_MessageBoxButtonData  buttons[] ={
+                    {0,0,"no"},
+                    {SDL_MESSAGEBOX_BUTTON_RETURNKEY_DEFAULT,1,"yes"},
+                    {SDL_MESSAGEBOX_BUTTON_ESCAPEKEY_DEFAULT,2,"cancel"}
+                };
+                
+                const SDL_MessageBoxData messageboxdata = {
+                    SDL_MESSAGEBOX_INFORMATION,
+                    NULL,
+                    "",
+                    "are you sure want to quit?",
+                    SDL_arraysize(buttons),
+                    buttons,
+                    &colorScheme
+                };
+                int buttonid;
+                if(SDL_ShowMessageBox(&messageboxdata,&buttonid)<0){
+                    SDL_Log("error");
+                }
+                if(buttonid == -1){
+                    SDL_Log("no selection");
+                }else if(buttonid == 0) {
+                    
+                }else if(buttonid == 1) {
+                    running = 0;
+                }else if(buttonid == 2) {
+                    
+                }
+
             }
         }
         piontodane(pHorizPosition);
         if (ismat(pKingPosition, pHorizPosition, pVertPosition) == 1)
         {
-            running = 0;
-            SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_INFORMATION,
-                                     "Black win",
-                                     "",
-                                     NULL);
+            
+            const SDL_MessageBoxButtonData  buttons[] ={
+                    {0,0,"no"},
+                    {SDL_MESSAGEBOX_BUTTON_RETURNKEY_DEFAULT,1,"yes"}
+                };
+                
+                const SDL_MessageBoxData messageboxdata = {
+                    SDL_MESSAGEBOX_INFORMATION,
+                    NULL,
+                    "",
+                    "Black win, do you want to replay?",
+                    SDL_arraysize(buttons),
+                    buttons,
+                    &colorScheme
+                };
+                int buttonid;
+                if(SDL_ShowMessageBox(&messageboxdata,&buttonid)<0){
+                    SDL_Log("error");
+                }
+                if(buttonid == -1){
+                    SDL_Log("no selection");
+                }else if(buttonid == 0) {
+                    running = 0;
+                }else if(buttonid == 1) {
+                    reinit(pKingPosition, pHorizPosition, pVertPosition);
+                }
         }
         else if (ismat(pKingPosition, pHorizPosition, pVertPosition) == -1)
         {
-            running = 0;
-            SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_INFORMATION,
-                                     "White win",
-                                     "",
-                                     NULL);
+            const SDL_MessageBoxButtonData  buttons[] ={
+                    {0,0,"no"},
+                    {SDL_MESSAGEBOX_BUTTON_RETURNKEY_DEFAULT,1,"yes"}
+                };
+                
+                const SDL_MessageBoxData messageboxdata = {
+                    SDL_MESSAGEBOX_INFORMATION,
+                    NULL,
+                    "",
+                    "white win, do you want to replay?",
+                    SDL_arraysize(buttons),
+                    buttons,
+                    &colorScheme
+                };
+                int buttonid;
+                if(SDL_ShowMessageBox(&messageboxdata,&buttonid)<0){
+                    SDL_Log("error");
+                }
+                if(buttonid == -1){
+                    SDL_Log("no selection");
+                }else if(buttonid == 0) {
+                    running = 0;
+                }else if(buttonid == 1) {
+                    reinit(pKingPosition, pHorizPosition, pVertPosition);
+                }
         }
     }
     SDL_DestroyRenderer(renderer);

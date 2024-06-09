@@ -1505,3 +1505,35 @@ int *ClickPositionDetection(int x, int y)
 
         return detected;
 }
+
+void reinit(int *KingPosition, int *HorizPosition, int *VertPosition){
+
+int KingPosition1[7][7] = {
+    {0, 0, 0, 0, 0, 0, 0},
+    {0, 0, 0, 0, 0, 0, 0},
+    {0, 0, 0, 0, 0, 0, 0},
+    {1, 0, 0, 0, 0, 0, 2},
+    {0, 0, 0, 0, 0, 0, 0},
+    {0, 0, 0, 0, 0, 0, 0},
+    {0, 0, 0, 0, 0, 0, 0}};
+int HorizPosition1[7][8] = {
+    {0, 1, 0, 0, 0, 0, 2, 0},
+    {0, 1, 0, 0, 0, 0, 2, 0},
+    {0, 1, 0, 0, 0, 0, 2, 0},
+    {0, 1, 0, 0, 0, 0, 2, 0},
+    {0, 1, 0, 0, 0, 0, 2, 0},
+    {0, 1, 0, 0, 0, 0, 2, 0},
+    {0, 1, 0, 0, 0, 0, 2, 0}};
+int VertPosition1[7][8] = {
+    {3, 3, 3, 3, 3, 3, 3, 3},
+    {1, 1, 1, 1, 1, 1, 1, 1},
+    {0, 0, 0, 0, 0, 0, 0},
+    {0, 0, 0, 0, 0, 0, 0},
+    {0, 0, 0, 0, 0, 0, 0},
+    {2, 2, 2, 2, 2, 2, 2, 2},
+    {4, 4, 4, 4, 4, 4, 4, 4}};
+     *KingPosition = &KingPosition1;
+     *HorizPosition = &HorizPosition1;
+     *VertPosition = &VertPosition1;
+
+}
