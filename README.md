@@ -2,7 +2,7 @@
 
 
 <p align="center" width="100%">
-    <img width="70%" src="img/weclome.png"> 
+    <img width="70%" src="img/welcome.png"> 
 </p>
 
 
