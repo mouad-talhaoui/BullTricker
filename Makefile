@@ -1,11 +1,11 @@
 make:
-	gcc BULLTRICKER.c -w -lSDL2 -o bulltriker
+	gcc BULLTRICKER.c -w -lSDL2 -o bulltricker
 
-run: bulltriker
-	./bulltriker
+run: bulltricker
+	./bulltricker
 
 clean:
-	rm -f bulltriker
+	rm -f bulltricker
 check:
-		gcc main.c -w -lSDL2 -o ss
-		./ss
+		gcc main.c -w -lSDL2 -o check
+		./check
