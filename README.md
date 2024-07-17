@@ -21,6 +21,10 @@
     <img width="70%" src="img/blackwin.png"> 
 </p>
 
+<p align="center" width="100%">
+    <img width="70%" src="img/replay.png"> 
+</p>
+
 
 # Requirements
 
